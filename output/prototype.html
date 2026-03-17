@@ -74,16 +74,24 @@
     min-height: calc(100vh - 100px);
   }
 
+  /* === PHONE + COMMENT GROUP === */
+  .phone-comment-group {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 60px;
+    margin-top: -60px;
+    padding: 20px 0;
+  }
+
   /* === PHONE FRAME === */
   .phone-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
-    flex: 1;
-    justify-content: center;
-    padding: 20px 0;
-    margin-top: -60px;
+    flex-shrink: 0;
   }
   .phone-label {
     font-size: 13px;
@@ -715,9 +723,9 @@
     flex-direction: column;
     justify-content: flex-start;
     align-self: flex-start;
-    margin-top: -60px;
+    margin-top: 0;
     padding-top: 0;
-    padding-left: 60px;
+    padding-left: 0;
     position: sticky;
     top: 20px;
   }
@@ -1031,7 +1039,8 @@
     </div>
   </div>
 
-  <!-- PHONE MOCKUP -->
+  <!-- PHONE + COMMENT GROUP -->
+  <div class="phone-comment-group">
   <div class="phone-wrapper">
 
     <div class="phone-frame">
@@ -1545,6 +1554,7 @@
     <div class="comment-panel-title">UX Insight</div>
     <div id="comment-cards"></div>
   </div>
+  </div><!-- /phone-comment-group -->
 
 </div>
 </div><!-- /type1-container -->
@@ -1598,7 +1608,8 @@
     </div>
   </div>
 
-  <!-- TYPE 2 PHONE -->
+  <!-- TYPE 2 PHONE + COMMENT GROUP -->
+  <div class="phone-comment-group">
   <div class="phone-wrapper">
 
     <div class="phone-frame">
@@ -1881,6 +1892,7 @@
     <div class="comment-panel-title">UX Insight</div>
     <div id="comment-cards-2"></div>
   </div>
+  </div><!-- /phone-comment-group -->
 
 </div>
 </div><!-- /type2-container -->

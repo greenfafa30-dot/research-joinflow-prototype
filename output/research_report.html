@@ -68,7 +68,7 @@
     color: var(--text-tertiary);
     text-decoration: none;
     font-size: 13px;
-    transition: color 0.15s;
+    transition: color 0.2s, border-color 0.2s;
     border-left: 2px solid transparent;
   }
 
@@ -76,16 +76,30 @@
     color: var(--text-primary);
   }
 
+  .sidebar nav a.active {
+    color: var(--text-primary);
+    border-left-color: var(--text-primary);
+  }
+
   .sidebar nav a.section-head {
-    font-weight: 500;
+    font-weight: 700;
     color: var(--text-secondary);
     margin-top: 20px;
-    font-size: 13px;
+    font-size: 15.5px;
+  }
+
+  .sidebar nav a.section-head.active {
+    color: var(--text-primary);
   }
 
   .sidebar nav a.sub {
     padding-left: 36px;
     font-size: 12.5px;
+  }
+
+  .sidebar nav a.sub.active {
+    color: var(--text-primary);
+    border-left-color: var(--text-primary);
   }
 
   /* Main */
@@ -1450,5 +1464,36 @@
 </footer>
 
 </div>
+
+<script>
+(function() {
+  const navLinks = document.querySelectorAll('.sidebar nav a[href^="#"]');
+  const sections = [];
+
+  navLinks.forEach(link => {
+    const id = link.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) sections.push({ id, el, link });
+  });
+
+  function onScroll() {
+    const scrollY = window.scrollY + 120;
+
+    let current = sections[0];
+    for (let i = sections.length - 1; i >= 0; i--) {
+      if (sections[i].el.offsetTop <= scrollY) {
+        current = sections[i];
+        break;
+      }
+    }
+
+    navLinks.forEach(l => l.classList.remove('active'));
+    if (current) current.link.classList.add('active');
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
 </body>
 </html>
